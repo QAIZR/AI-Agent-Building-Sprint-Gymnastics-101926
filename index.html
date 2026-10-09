@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    QAIZR AI Agent Building Sprint - Gymnastics Programs Flyer
+    Gymnastics-targeted variant of the Sprint pre-registration page, for
+    collegiate gymnastics head coaches and their staffs.
+    Owner: Brian Audia (baudia@qzr.ai)
+
+    No audit-trail metadata in the rendered chrome (per CoS Section 19).
+    This comment is the audit trail. Versioning per CoS Operating Rule #6.
+
+    Version: v1.9.0 (2026-10-09) [gymnastics variant, forked from general flyer v1.2.6]
+    Brand: matches qaizr-brand-guide.html (Space Grotesk + Inter + JetBrains
+    Mono; space-noir / signal-cyan; warm only as gradient-jet, no standalone
+    gold) and the visual language of qaizr-site-v2.html (square buttons,
+    alternating dark sections, 1600px stretch).
+
+    CHANGELOG
+    v1.9.0  2026-10-09  October cohort: Monday, October 19 to Friday, October
+                        23, 2026. Gymnastics programs join the open-enrollment
+                        October Sprint, which runs one live session a day at
+                        10:00 AM Central alongside business leaders. Removed the
+                        two-session framing, the session picker, and the
+                        switch-sessions FAQ. Added the Wednesday, October 14
+                        registration close. Rewrote the spouse FAQ for a mixed
+                        cohort. Dates updated in the meta description, hero
+                        chips, the week, the steps, the register heading, the
+                        form subject line, and the final CTA. Code WCGA kept.
+                        New hosting repo and URL for this cohort:
+                        AI-Agent-Building-Sprint-Gymnastics-101926. Formspree
+                        endpoint unchanged (xojoyzoa); rename the form to
+                        "Gymnastics Sprint Pre-Registration October 2026" and
+                        update the autoresponse dates in Formspree.
+    v1.8.0  2026-08-20  Cohort moved from the week of August 24 to the week of
+                        September 14, 2026 (September 14 to 18), per near-
+                        unanimous feedback from participating programs about
+                        staff scheduling conflicts. The later week lets
+                        registered programs bring more of their staff and opens
+                        the door for programs that could not make August 24.
+                        Dates updated in the meta description, the hero chip,
+                        the pre-registration steps, the register heading, and
+                        the final CTA eyebrow. New hosting repo and URL for
+                        this cohort: AI-Agent-Building-Sprint-Gymnastics-091426.
+                        Formspree endpoint unchanged (xojoyzoa); rename the form
+                        to "Gymnastics Sprint Pre-Registration September 2026"
+                        and update the autoresponse dates in Formspree.
+    v1.7.0  2026-07-25  Offer rebrand per Casey Jo MacPherson's feedback and
+                        Brian. Removed all CGGI and "Collegiate Gymnastics Growth
+                        Initiative" language. The offer is now attributed to the
+                        Growth and Enhancement Committee of the Women's Collegiate
+                        Gymnastics Association, and the code is WCGA across the
+                        hero banner, value section, offer card, additional-costs
+                        FAQ, spouse FAQ, and the pre-filled form field. The code
+                        field is free text, so an old CGGI entry still posts fine.
+                        Hero headline softened from "a fleet to run your
+                        gymnastics program" to "help run," to reassure
+                        control-minded coaches. The hero-offer eyebrow set to
+                        sentence case to carry the longer attribution line.
+    v1.6.3  2026-07-25  Grammar fix: "morning and afternoon session" to
+                        "sessions" (plural) in the switch-sessions FAQ question.
+    v1.6.2  2026-07-25  Clarified in the spouse/family FAQ that the CGGI
+                        gymnastics offer covers the program's staff only; a
+                        spouse or family member joining for a separate,
+                        non-gymnastics organization pays the normal $1,000 per
+                        person and cannot come through on the gymnastics deal.
+    v1.6.1  2026-07-25  Clarified the IP question wording, naming the specific
+                        deliverables: "Can I share the agents, prompts, tools,
+                        and training videos you give me with other people or
+                        programs at my school?" Answer unchanged.
+    v1.6.0  2026-07-25  Corrected the computer specs to the Sprint baseline from
+                        the prework onboarding guide: minimum 16 GB RAM and 500
+                        GB storage, recommended 24 GB and 1 TB (the earlier
+                        8 GB / 5 GB figures were wrong). Softened the "best tool,
+                        by far" line in the school answer to a grounded "in our
+                        experience, the strongest tool for this work today, and
+                        what this entire Sprint is built around." Added a FAQ on
+                        a spouse or family member joining for their own business.
+                        FAQ count 11 to 12.
+    v1.5.0  2026-07-25  FAQ expansion per Brian. Tech-savvy answer shifted to
+                        future tense (no cohort has run yet). "What will I need"
+                        now lists computer minimums (Windows or Mac laptop or
+                        desktop, 8 GB RAM min / 16 recommended, 5 GB free storage,
+                        reliable internet; no phone, tablet, or Chromebook) plus
+                        Cowork by Claude and a Claude Pro subscription. "Miss a
+                        day" now notes the recording and transcript plus all
+                        prompts, homework, and assignments in Basecamp folders.
+                        Added FAQs: before-Day-1 prework with the no-time-to-fix-
+                        tech note and the "did we mention this is an intensive?!"
+                        line; sessions are virtual on Zoom with links in Basecamp;
+                        and an intellectual-property honor-system answer asking
+                        coaches not to share the tools and to refer others to buy.
+                        School answer's construction metaphor refined (different
+                        tools for different jobs; Cowork by Claude is the best
+                        tool for building and coordinating agents today). FAQ
+                        count 8 to 11.
+    v1.4.1  2026-07-25  Final tightening. On-page confirmation message widened
+                        to set the roster expectation now that Melissa Audia
+                        handles invoicing and roster capture by email: "Watch
+                        your email for your invoice and a note about adding your
+                        staff." Preview-mode message matched. Form reviewed:
+                        required fields are name, work email, mobile, role,
+                        school, and the Morning/Afternoon session pick; staff
+                        roster, billing email, invoicing details, and the
+                        pre-filled CGGI code are optional; honeypot and subject
+                        line intact; posts to the Formspree endpoint via fetch.
+    v1.4.0  2026-07-25  Friction and FAQ pass per Brian. Made the staff roster
+                        field optional and low-pressure ("we will collect your
+                        full roster from you later"), since the authoritative
+                        roster with full contact info is gathered at payment.
+                        Added an eight-question FAQ section near the bottom
+                        (native details/summary accordion) covering: no tech
+                        savvy required; working in Claude Cowork with a ~$20/mo
+                        Claude Pro subscription per person; no additional costs
+                        beyond that; recordings in Basecamp for missed days;
+                        switching between the 9 AM and 3 PM sessions day to day
+                        for travel; a few minutes of Q&A after each session; the
+                        project running through Basecamp; and the school-approval
+                        answer with the construction-tools metaphor.
+    v1.3.0  2026-07-25  Refinement pass per Brian. Centered the orange CGGI
+                        hero banner. Added "to increase your productivity
+                        exponentially" to the promise lede. Highlighted the two
+                        session times (9 AM and 3 PM Central) in orange in the
+                        week section, and changed the daily commitment there from
+                        "30 to 60 minutes of homework" to "one to two hours of
+                        application work." Added a new "Come ready to work"
+                        section setting the intensity expectation: two weeks of
+                        learning in one, one to two hours of application daily,
+                        iterative days, everyone locked in, a recommendation to
+                        block a half day, and the whole-staff-together bonus.
+                        Converted the staff field to a name-and-email textarea so
+                        every attendee can be invited to Basecamp, with a note
+                        that the roster can be finalized before Day 1.
+    v1.2.0  2026-07-25  Gymnastics offer and audience pass per Brian. Audience
+                        line broadened from head coaches to head coaches, their
+                        staffs, directors of operations, and sport
+                        administrators. Added the Collegiate Gymnastics Growth
+                        Initiative offer: a prominent jet-orange hero banner and
+                        the code CGGI that unlocks one flat $1,000 for up to five
+                        people, or six with the sport administrator; code
+                        pre-filled in the form. Pulled "whole staff" out of the
+                        small hero chips into that banner. Week section now leads
+                        with the first-time-ever, gymnastics-only two-sessions-a-
+                        day framing (9 AM and 3 PM Central) around practice and
+                        class schedules. Value stack re-weighted (first agent
+                        $100, Agent Builder + Speedrun $750, Starter Packs $500,
+                        prompts $300, scaffolding $750, cohort access $100; total
+                        holds at $5,000). Added billing contact email and
+                        invoicing details fields to the pre-registration form.
+    v1.1.0  2026-07-25  August 24-28 cohort update with two daily sessions and
+                        a session picker. Dates moved from July 13-17 to August
+                        24-28 across the meta description, hero chip, the week
+                        section, the value stack, the pre-registration steps,
+                        the register heading, and the final CTA. Added the
+                        second daily session (9:00 AM or 3:00 PM Central) with
+                        the practice-window framing, and added a required
+                        Morning/Afternoon radio choice to the pre-registration
+                        form so each program self-routes to its cohort. "Five
+                        mornings" changed to "five days"; "miss a morning" to
+                        "miss a session." Pricing sharpened per Brian: one flat
+                        $1,000 covers the whole coaching staff up to five, or
+                        six with the sport administrator ($30,000 of value for
+                        $1,000). Formspree endpoint left at the existing form
+                        (xojoyzoa); swap it if a new August form is created.
+                        New hosting repo and URL for this cohort.
+    v1.0.3  2026-07-04  Wired the live Formspree endpoint (form id xojoyzoa,
+                        "Gymnastics Sprint Pre-Registration July 2026" in the
+                        QAIZR AI workspace). Form is out of demo mode and
+                        POSTs live. Notifications to baudia@qzr.ai and
+                        maudia@qzr.ai; autoresponse reply-to baudia@qzr.ai.
+    v1.0.2  2026-07-04  Hero scale and logo fix. Top padding 11rem to 7.5rem,
+                        hero mark 112px to 150px, quote clamp cap 2.35rem to
+                        3rem in a 38ch column, cite to 0.88rem. Jet gradient
+                        corrected to the canonical two-gradient master
+                        (jet-core white at the center dot radiating through
+                        jet-orange-bright to jet-orange-deep at both tips);
+                        the prior single top-to-bottom gradient was wrong.
+    v1.0.1  2026-05-31  Sharpened the value framing for coaches. Made explicit
+                        that the training is normally $1,000 per person at a
+                        $5,000 per-person value, and that one flat $1,000
+                        covers the whole program (five people = $25,000 of
+                        value for $1,000, Brian covers the rest). Updated the
+                        value header, sub, total label, and offer card.
+    v1.0.0  2026-05-31  Gymnastics-targeted variant, forked from the general
+                        AI Agent Building Sprint flyer at v1.2.6. Same QAIZR
+                        brand, layout, dates (week of July 13), and teaching,
+                        reworked for collegiate gymnastics head coaches: hero,
+                        who it is for, use cases (recruiting, fundraising,
+                        operations and scheduling, outreach, staff and athlete
+                        development, analysis), and a per-program offer ($1,000
+                        for the whole staff and sport administrator). Separate
+                        Formspree form and hosting URL; endpoint reset to a
+                        placeholder until the new form is created. Entries
+                        below are the inherited history of the source flyer.
+    v1.2.6  2026-05-31  Messaging fix. The hero oversold a single agent.
+                        Reframed the headline, sub, and lede around the real
+                        arc: build your first agent, make it better, stand up
+                        a fleet, command them as one operating system, and
+                        deploy it across your organization. Final CTA is now
+                        "Build your agents this week." Meta description updated
+                        to match.
+    v1.2.5  2026-05-31  Visual polish. Hero icon switched to the gradient-jet
+                        variant (orange jet, cyan ring, the brand guide's only
+                        sanctioned warm accent) with a warm glow. Enlarged the
+                        Peter Diamandis hero quote so it reads as a co-equal
+                        statement to the headline, with "out of business" in
+                        cyan. Strengthened the hover on all cards and the quote
+                        cards to a cyan border, lift, and cyan glow (warm
+                        accents stay off repeating card modules per brand).
+    v1.2.4  2026-05-31  Added client-code auto-normalization. On submit, the
+                        Client or referral code field is uppercased and
+                        stripped to letters and digits, so "usa 250",
+                        "USA-250", and "usa250" all arrive as USA250. The
+                        single complimentary-access code for current clients
+                        is USA250, validated manually by Melissa and kept off
+                        the public page.
+    v1.2.3  2026-05-31  Wired the live Formspree endpoint (form id xwvdngwp).
+                        The pre-registration form is out of demo mode and now
+                        POSTs to Formspree. Live submissions require the page
+                        to be hosted (Formspree blocks local file:// pages)
+                        and the first submission to confirm the form and
+                        activate the maudia@qzr.ai notification address.
+    v1.2.2  2026-05-31  Split the email routing. Formspree notifications and
+                        the verification email stay with Melissa Audia
+                        (maudia@qzr.ai, billing and backend). The public
+                        contact on the flyer (footer, form note, error
+                        fallback) and the autoresponse reply-to are now Brian
+                        Audia (baudia@qzr.ai), who handles sales and marketing.
+    v1.2.1  2026-05-31  Routed all notification and contact email to Melissa
+                        Audia (maudia@qzr.ai), EVP Finance and Administration,
+                        since info@qzr.ai is not yet set up. Updated the
+                        footer contact, the form note, and the form error
+                        fallback. Companion setup notes updated to match.
+    v1.2.0  2026-05-31  Promoted the 3-3-3 Laja conversion pass (nine
+                        improvements, runs/01-laja, Laja-graded 6.2 to 8.5)
+                        into the canonical flyer. Two buyer edits on top:
+                        clarified the hero price chip to "Investment $1,000,
+                        $5,000 value" with the value struck through (no gold
+                        per the brand guide), and swapped the Andrew Ng quote
+                        for a verified Sundar Pichai quote in the "Why now"
+                        band.
+    v1.1.0  2026-05-31  Punchier lead and more substance. Added verified,
+                        attributed expert quotes (Peter H. Diamandis in the
+                        hero; Andrew Ng and Karim Lakhani in a "Why now" band).
+                        Reframed the promise around the executive AI primer,
+                        added the No SOP to Agent Swarm progression, added a
+                        recruiting / marketing / sales / operations use-case
+                        section, and corrected the time commitment to one hour
+                        of live training each morning plus 30 to 60 minutes of
+                        daily homework.
+    v1.0.0  2026-05-31  Initial canonical build. Supersedes the earlier quick
+                        draft (waitlist flyer) at this same path. Scrolling
+                        landing page: hero, the promise, who it is for, the
+                        five mornings, value stack ($5,000 value / $1,000 to
+                        enroll, lines approved by Brian), how pre-registration
+                        works, Formspree pre-registration form (name, email,
+                        mobile, job title, organization, optional code; demo
+                        mode until endpoint set), soft Bootcamp tease, final
+                        CTA, footer. Cohort: July 13 to 17, 2026, 9:00 AM CT,
+                        live on Zoom.
+
+    FORMSPREE: LIVE (gymnastics form, wired 2026-07-04)
+    Form: "Gymnastics Sprint Pre-Registration July 2026" in the QAIZR AI
+    workspace, endpoint https://formspree.io/f/xojoyzoa, separate from the
+    general flyer's form. Notifications to baudia@qzr.ai and maudia@qzr.ai.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QAIZR AI Agent Building Sprint for Gymnastics Programs</title>
+  <meta name="description" content="For collegiate gymnastics head coaches and their staffs. A live five-day cohort to put AI to work across your program, from recruiting to operations. Live on Zoom at 10:00 AM Central. Week of October 19. Pre-register now.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='64' fill='%23020B1E'/><circle cx='256' cy='256' r='86' fill='none' stroke='%2345D6FF' stroke-width='12' stroke-linecap='round' stroke-dasharray='502 38' stroke-dashoffset='-70'/><path d='M247.6 110C248.4 176 250.4 218 253.6 256C250.4 294 248.4 337 247.6 402L264.4 402C263.6 337 261.6 294 258.4 256C261.6 218 263.6 176 264.4 110Z' fill='%2345D6FF'/><circle cx='256' cy='256' r='18' fill='%23F4FBFF'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --space-1000:#010714;
+      --space-950:#0c162a;
+      --space-900:#12223e;
+      --space-800:#1c3456;
+      --signal-cyan:#37D1FF;
+      --signal-cyan-bright:#45D6FF;
+      --signal-blue:#1990FF;
+      --paper-frost:#F3FAFF;
+      --text-mid:#C2D4E8;
+      --line:rgba(156,182,212,0.24);
+      --line-bright:rgba(55,209,255,0.4);
+      --jet-orange-bright:#FF9A2F;
+      --jet-orange-deep:#FF5A3D;
+      --display:'Space Grotesk','Inter',sans-serif;
+      --body:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;
+      --maxw:1600px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { font-size:112.5%; scroll-behavior:smooth; }
+    body {
+      font-family:var(--body); font-weight:400;
+      background:var(--space-1000); color:var(--paper-frost);
+      line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    }
+    a { color:inherit; }
+    svg { display:block; max-width:100%; }
+
+    .wrap { max-width:var(--maxw); margin:0 auto; padding:0 7%; }
+    section { padding:7rem 0; }
+
+    .eyebrow {
+      font-family:var(--mono); font-size:0.74rem; font-weight:600;
+      text-transform:uppercase; letter-spacing:0.15em;
+      color:var(--signal-cyan-bright); margin-bottom:1.1rem;
+    }
+    h2.section-title {
+      font-family:var(--display); font-weight:600;
+      font-size:clamp(2.2rem,4vw,3.4rem); line-height:1.12;
+      letter-spacing:-0.03em; color:var(--paper-frost); text-wrap:balance;
+    }
+    .section-sub {
+      font-size:1.12rem; color:var(--text-mid); margin-top:1rem;
+      max-width:74ch; text-wrap:pretty;
+    }
+    .section-head { margin-bottom:3.4rem; }
+
+    /* buttons - square, matching the site */
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
+      font-family:var(--display); font-weight:700; font-size:1rem; letter-spacing:-0.01em;
+      padding:1rem 1.9rem; border-radius:0; text-decoration:none; cursor:pointer;
+      border:1px solid transparent;
+      transition:transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+      white-space:nowrap;
+    }
+    .btn-primary { background:var(--signal-cyan-bright); color:#03101f; box-shadow:0 8px 32px rgba(69,214,255,0.42); }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(69,214,255,0.58); }
+    .btn-ghost { background:transparent; color:var(--text-mid); text-decoration:underline; text-underline-offset:5px; text-decoration-color:var(--line); }
+    .btn-ghost:hover { color:var(--paper-frost); text-decoration-color:var(--signal-cyan-bright); }
+
+    /* nav */
+    .nav { position:fixed; top:0; left:0; right:0; z-index:50; transition:background 0.25s ease, border-color 0.25s ease; border-bottom:1px solid transparent; }
+    .nav.scrolled { background:rgba(2,11,30,0.92); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); border-bottom-color:var(--line); }
+    .nav-inner { max-width:var(--maxw); margin:0 auto; padding:1rem 7%; display:flex; align-items:center; justify-content:space-between; gap:2rem; }
+    .logo-svg { height:46px; width:auto; }
+    .nav .btn { padding:0.7rem 1.3rem; font-size:0.92rem; }
+
+    /* hero */
+    .hero { padding:7.5rem 0 6rem; background:radial-gradient(ellipse 70% 60% at 50% 0%, rgba(55,209,255,0.13), transparent 70%), var(--space-1000); text-align:center; }
+    .hero-inner { max-width:var(--maxw); margin:0 auto; padding:0 7%; }
+    .hero .eyebrow { font-size:0.82rem; letter-spacing:0.13em; }
+    .hero-mark { width:150px; height:150px; margin:0 auto 1.6rem; filter:drop-shadow(0 0 22px rgba(255,138,47,0.42)); }
+    .hero-quote { max-width:38ch; margin:0 auto 1.9rem; font-family:var(--display); font-weight:600; font-style:italic; font-size:clamp(1.55rem,2.9vw,3rem); line-height:1.28; letter-spacing:-0.02em; color:var(--paper-frost); text-wrap:balance; }
+    .hero-quote .accent { color:var(--signal-cyan-bright); }
+    .hero-quote cite { display:block; margin-top:1rem; font-style:normal; font-family:var(--mono); font-weight:600; font-size:0.88rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--signal-cyan-bright); line-height:1.55; }
+    .hero-quote cite span { display:block; color:var(--text-mid); font-weight:500; letter-spacing:0.05em; }
+    .quotes { background:radial-gradient(ellipse 70% 70% at 50% 30%, rgba(55,209,255,0.08), transparent 70%), var(--space-1000); }
+    .quotes2 { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+    .qcard { background:var(--space-900); border:1px solid var(--line); padding:2rem 2rem 2.1rem; display:flex; flex-direction:column; justify-content:space-between; transition:border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease; }
+    .qcard:hover { border-color:var(--signal-cyan-bright); transform:translateY(-4px); box-shadow:0 12px 30px rgba(55,209,255,0.20); }
+    .qcard blockquote { font-family:var(--display); font-weight:600; font-style:italic; font-size:clamp(1.25rem,2.1vw,1.65rem); line-height:1.34; letter-spacing:-0.02em; color:var(--paper-frost); text-wrap:balance; }
+    .qcard blockquote .accent { color:var(--signal-cyan-bright); }
+    .qcard cite { margin-top:1.3rem; font-style:normal; font-family:var(--mono); font-weight:600; font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--signal-cyan-bright); }
+    .qcard cite span { display:block; color:var(--text-mid); font-weight:500; margin-top:0.2rem; }
+    h1.hero-h1 {
+      font-family:var(--display); font-weight:600;
+      font-size:clamp(2.5rem,5.2vw,4rem); line-height:1.06; letter-spacing:-0.038em;
+      color:var(--paper-frost); margin:0 auto; max-width:20ch; text-wrap:balance;
+    }
+    h1.hero-h1 .accent { color:var(--signal-cyan-bright); }
+    .hero-sub {
+      font-family:var(--display); font-weight:600; font-style:italic;
+      font-size:clamp(1.3rem,2.4vw,1.9rem); line-height:1.3; letter-spacing:-0.02em;
+      color:var(--signal-cyan-bright); margin:1.3rem auto 0; max-width:48ch; text-wrap:balance;
+    }
+    .hero-lede { font-size:1.14rem; color:var(--text-mid); margin:1.7rem auto 0; max-width:76ch; text-wrap:pretty; }
+    .hero-lede strong { color:var(--paper-frost); font-weight:600; }
+    .hero-cta { display:flex; gap:1.4rem; justify-content:center; flex-wrap:wrap; margin-top:2.3rem; }
+    .cta-reassure { font-size:0.92rem; color:var(--text-mid); margin-top:1rem; text-wrap:pretty; }
+    .cta-reassure b { color:var(--paper-frost); font-weight:600; }
+
+    /* logistics chips */
+    .chips { display:flex; flex-wrap:wrap; gap:0.7rem; justify-content:center; margin-top:2.2rem; }
+    .chip {
+      font-family:var(--mono); font-size:0.8rem; letter-spacing:0.04em;
+      color:var(--paper-frost); background:var(--space-900);
+      border:1px solid var(--line); padding:0.55rem 1rem;
+    }
+    .chip b { color:var(--signal-cyan-bright); font-weight:600; }
+    .chip s { color:var(--text-mid); text-decoration-color:var(--text-mid); }
+
+    /* alt section */
+    .alt { background:var(--space-950); }
+
+    /* generic prose */
+    .prose p { font-size:1.1rem; color:var(--text-mid); max-width:70ch; margin-bottom:1.1rem; text-wrap:pretty; }
+    .prose p:last-child { margin-bottom:0; }
+    .prose strong { color:var(--paper-frost); font-weight:600; }
+
+    /* card grids */
+    .grid { display:grid; gap:1.5rem; }
+    .g2 { grid-template-columns:repeat(2,1fr); }
+    .g3 { grid-template-columns:repeat(3,1fr); }
+    .g4 { grid-template-columns:repeat(4,1fr); }
+    .g5 { grid-template-columns:repeat(5,1fr); }
+    .card {
+      background:var(--space-900); border:1px solid var(--line); border-radius:0;
+      padding:1.6rem; transition:border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card:hover { border-color:var(--signal-cyan-bright); transform:translateY(-4px); box-shadow:0 12px 30px rgba(55,209,255,0.20), 0 0 0 1px rgba(55,209,255,0.30); }
+    .card .idx { font-family:var(--mono); font-size:0.74rem; font-weight:600; letter-spacing:0.15em; color:var(--signal-cyan); text-transform:uppercase; }
+    .card h3 { font-family:var(--display); font-weight:600; font-size:1.2rem; line-height:1.25; letter-spacing:-0.015em; color:var(--paper-frost); margin:0.55rem 0 0.55rem; text-wrap:balance; }
+    .card p { font-size:1.02rem; color:var(--text-mid); text-wrap:pretty; }
+
+    /* value stack */
+    .value-wrap { display:grid; grid-template-columns:1.35fr 0.65fr; gap:2.5rem; align-items:start; }
+    .value-list { border-top:1px solid var(--line); }
+    .value-row { display:grid; grid-template-columns:1fr auto; gap:1.5rem; align-items:baseline; padding:1.15rem 0; border-bottom:1px solid var(--line); }
+    .value-row .vi { font-size:1.06rem; color:var(--paper-frost); text-wrap:pretty; }
+    .value-row .vv { font-family:var(--mono); font-size:1rem; color:var(--text-mid); white-space:nowrap; }
+    .value-row.total { border-bottom:2px solid var(--line-bright); }
+    .value-row.total .vi { font-family:var(--display); font-weight:600; font-size:1.2rem; }
+    .value-row.total .vv { color:var(--paper-frost); font-weight:600; }
+    .offer-card {
+      background:var(--space-900); border:1px solid var(--line-bright);
+      padding:2.2rem 2rem; position:sticky; top:6rem;
+    }
+    .offer-card .label { font-family:var(--mono); font-size:0.74rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--signal-cyan-bright); }
+    .offer-card .strike { font-family:var(--display); font-size:1.3rem; color:var(--text-mid); text-decoration:line-through; margin-top:1rem; }
+    .offer-card .price { font-family:var(--display); font-weight:700; font-size:clamp(3.2rem,6vw,4.4rem); line-height:1; letter-spacing:-0.04em; color:var(--signal-cyan-bright); margin-top:0.3rem; }
+    .offer-card .price-note { font-size:0.96rem; color:var(--text-mid); margin-top:0.6rem; }
+    .offer-card .btn { width:100%; margin-top:1.5rem; }
+    .hero-offer { margin:1.5rem auto 0; border:1px solid var(--jet-orange-bright); background:linear-gradient(180deg, rgba(255,154,47,0.14), rgba(255,90,61,0.06)); padding:1.25rem 1.5rem; max-width:760px; text-align:center; }
+    .hero-offer-k { font-family:var(--mono); font-size:0.78rem; text-transform:none; letter-spacing:0.04em; color:var(--jet-orange-bright); margin:0; }
+    .hero-offer-h { font-family:var(--display); font-weight:700; font-size:clamp(1.5rem,3vw,2.1rem); line-height:1.1; letter-spacing:-0.02em; color:var(--paper-frost); margin:0.35rem 0 0; text-wrap:balance; }
+    .hero-offer-h .warm { color:var(--jet-orange-bright); }
+    .hero-offer-sub { font-size:1rem; color:var(--paper-frost); margin:0.6rem 0 0; text-wrap:pretty; }
+    .hero-offer-sub b { color:var(--jet-orange-bright); font-weight:700; }
+    .warm { color:var(--jet-orange-bright); }
+    .field textarea { width:100%; font-family:var(--body); font-size:1rem; color:var(--paper-frost); background:var(--space-1000); border:1px solid var(--line); border-radius:0; padding:0.85rem 1rem; transition:border-color 0.16s ease; resize:vertical; min-height:5.5rem; }
+    .field textarea:focus { outline:none; border-color:var(--signal-cyan-bright); }
+    .field textarea::placeholder { color:#5f7798; }
+    .orange-note { margin:1.5rem auto 0; border-left:4px solid var(--jet-orange-bright); background:rgba(255,154,47,0.08); padding:1.1rem 1.4rem; max-width:900px; text-align:left; }
+    .orange-note p { color:var(--paper-frost); margin:0; text-wrap:pretty; }
+    .orange-note strong { color:var(--jet-orange-bright); }
+    .faq-list { max-width:820px; margin:0 auto; }
+    .faq { border-bottom:1px solid var(--line); }
+    .faq summary { cursor:pointer; list-style:none; padding:1.1rem 0; font-family:var(--display); font-weight:600; font-size:1.1rem; color:var(--paper-frost); display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+    .faq summary::-webkit-details-marker { display:none; }
+    .faq summary::after { content:'+'; color:var(--signal-cyan-bright); font-family:var(--mono); font-size:1.5rem; line-height:1; flex-shrink:0; }
+    .faq[open] summary::after { content:'\2013'; }
+    .faq p { color:var(--text-mid); margin:0 0 1.15rem; max-width:72ch; text-wrap:pretty; }
+
+    /* steps */
+    .step .idx { font-size:2rem; font-family:var(--display); font-weight:700; color:var(--signal-cyan-bright); letter-spacing:-0.03em; }
+
+    /* form */
+    .form-wrap { display:grid; grid-template-columns:0.9fr 1.1fr; gap:3rem; align-items:start; }
+    .form-card { background:var(--space-900); border:1px solid var(--line); padding:2rem; }
+    .field { margin-bottom:1.15rem; }
+    .field label { display:block; font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-mid); margin-bottom:0.5rem; }
+    .field label .opt { color:var(--signal-cyan); text-transform:none; letter-spacing:0; }
+    .field input {
+      width:100%; font-family:var(--body); font-size:1rem; color:var(--paper-frost);
+      background:var(--space-1000); border:1px solid var(--line); border-radius:0;
+      padding:0.85rem 1rem; transition:border-color 0.16s ease;
+    }
+    .field input:focus { outline:none; border-color:var(--signal-cyan-bright); }
+    .field input::placeholder { color:#5f7798; }
+    .session-choice { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; }
+    .session-opt { position:relative; display:block; margin:0; cursor:pointer; }
+    .session-opt input { position:absolute; opacity:0; width:1px; height:1px; padding:0; margin:0; }
+    .session-opt span { display:flex; flex-direction:column; gap:0.15rem; font-family:var(--body); text-transform:none; letter-spacing:0; padding:0.85rem 1rem; border:1px solid var(--line); background:var(--space-1000); color:var(--text-mid); font-size:0.95rem; transition:border-color 0.16s ease, color 0.16s ease; }
+    .session-opt span b { font-weight:700; color:var(--paper-frost); font-size:1rem; }
+    .session-opt input:checked + span { border-color:var(--signal-cyan-bright); color:var(--paper-frost); box-shadow:inset 0 0 0 1px var(--signal-cyan-bright); }
+    .session-opt input:focus-visible + span { border-color:var(--signal-cyan-bright); }
+    .session-hint { font-family:var(--body); text-transform:none; letter-spacing:0; font-size:0.85rem; color:var(--text-mid); margin-top:0.6rem; text-wrap:pretty; }
+    @media (max-width:520px){ .session-choice { grid-template-columns:1fr; } }
+    .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+    .form-msg { margin-top:1rem; font-size:0.96rem; color:var(--signal-cyan-bright); min-height:1.2rem; text-wrap:pretty; }
+    .form-note { font-size:0.9rem; color:var(--text-mid); margin-top:1rem; }
+    .form-side .prose p { max-width:46ch; }
+    .form-side .check { display:grid; grid-template-columns:auto 1fr; gap:0.7rem 0.9rem; margin-top:1.2rem; }
+    .form-side .check .dot { width:8px; height:8px; border-radius:50%; background:var(--signal-cyan-bright); margin-top:0.55rem; }
+    .form-side .check p { font-size:1.02rem; color:var(--text-mid); margin:0; }
+
+    /* tease */
+    .tease { border:1px solid var(--line); background:var(--space-900); padding:clamp(2rem,4vw,3rem); }
+    .tease h2 { font-family:var(--display); font-weight:600; font-size:clamp(1.7rem,3vw,2.4rem); letter-spacing:-0.025em; color:var(--paper-frost); text-wrap:balance; }
+    .tease p { font-size:1.1rem; color:var(--text-mid); margin-top:1rem; max-width:74ch; text-wrap:pretty; }
+
+    /* final cta */
+    .finalcta { text-align:center; background:radial-gradient(ellipse 60% 80% at 50% 100%, rgba(55,209,255,0.12), transparent 70%), var(--space-1000); }
+    .finalcta h2 { font-family:var(--display); font-weight:600; font-size:clamp(2.2rem,4.4vw,3.4rem); letter-spacing:-0.03em; color:var(--paper-frost); text-wrap:balance; max-width:20ch; margin:0 auto; }
+    .finalcta .hero-cta { margin-top:2rem; }
+
+    /* footer */
+    .footer { border-top:1px solid var(--line); padding:3rem 0; }
+    .footer-inner { max-width:var(--maxw); margin:0 auto; padding:0 7%; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.5rem; }
+    .footer .logo-svg { height:64px; }
+    .footer-meta { font-family:var(--mono); font-size:0.8rem; letter-spacing:0.05em; color:var(--text-mid); }
+    .footer-meta a { color:var(--signal-cyan-bright); text-decoration:none; }
+
+    @media (max-width:1000px) {
+      .value-wrap { grid-template-columns:1fr; }
+      .offer-card { position:static; }
+      .form-wrap { grid-template-columns:1fr; gap:2rem; }
+      .g4 { grid-template-columns:repeat(2,1fr); }
+      .g5 { grid-template-columns:repeat(2,1fr); }
+      .g3 { grid-template-columns:1fr; }
+    }
+    @media (max-width:640px) {
+      section { padding:4.5rem 0; }
+      .g2, .g4, .g5 { grid-template-columns:1fr; }
+      .quotes2 { grid-template-columns:1fr; }
+      .nav .btn { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" aria-label="QAIZR home">
+        <svg class="logo-svg" viewBox="17 64 1361 376" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><radialGradient id="ncore" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 252) rotate(90) scale(112)"><stop offset="0" stop-color="#F4FBFF" stop-opacity="0.9"/><stop offset="0.56" stop-color="#45D6FF" stop-opacity="0.2"/><stop offset="1" stop-color="#45D6FF" stop-opacity="0"/></radialGradient><linearGradient id="nq" x1="120" y1="140" x2="790" y2="320" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F1F6FC"/><stop offset="1" stop-color="#DDE9F7"/></linearGradient><linearGradient id="nai" x1="1120" y1="158" x2="1420" y2="336" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#70E8FF"/><stop offset="1" stop-color="#1F90FF"/></linearGradient></defs><text x="812" y="325" text-anchor="end" fill="url(#nq)" font-size="214" font-family="Space Grotesk, Arial, sans-serif" font-weight="600" letter-spacing="6">QAIZR</text><circle cx="960" cy="252" r="66" fill="none" stroke="#2DBCE8" stroke-width="6" stroke-linecap="round" stroke-dasharray="392 23" stroke-dashoffset="-52" opacity="0.86"/><circle cx="960" cy="252" r="104" fill="url(#ncore)"/><path d="M955.8 84 C956.2 162 957.2 212 958.8 252 C957.2 292 956.2 342 955.8 420 L964.2 420 C963.8 342 962.8 292 961.2 252 C962.8 212 963.8 162 964.2 84 Z" fill="#2DBCE8" opacity="0.95"/><circle cx="960" cy="252" r="14" fill="#F4FBFF"/><text x="1108" y="325" text-anchor="start" fill="url(#nai)" font-size="214" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" letter-spacing="6">AI</text></svg>
+      </a>
+      <a class="btn btn-primary" href="#register">Pre-register</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-inner">
+        <svg class="hero-mark" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="jetUp" x1="256" y1="256" x2="256" y2="70" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F4FBFF"/><stop offset="0.56" stop-color="#FF9A2F"/><stop offset="1" stop-color="#FF5A3D"/></linearGradient><linearGradient id="jetDown" x1="256" y1="256" x2="256" y2="442" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F4FBFF"/><stop offset="0.56" stop-color="#FF9A2F"/><stop offset="1" stop-color="#FF5A3D"/></linearGradient></defs><circle cx="256" cy="256" r="150" fill="none" stroke="#2DBCE8" stroke-width="14" stroke-linecap="round" stroke-dasharray="884 52" stroke-dashoffset="-118" opacity="0.9"/><path d="M247.6 70 C248.4 168 250.4 214 253.6 256 L258.4 256 C261.6 214 263.6 168 264.4 70 Z" fill="url(#jetUp)" opacity="0.97"/><path d="M253.6 256 C250.4 298 248.4 344 247.6 442 L264.4 442 C263.6 344 261.6 298 258.4 256 Z" fill="url(#jetDown)" opacity="0.97"/><circle cx="256" cy="256" r="30" fill="#F4FBFF"/></svg>
+        <p class="eyebrow">AI Agent Building Sprint &middot; For collegiate gymnastics programs</p>
+        <blockquote class="hero-quote">&ldquo;There will be two kinds of companies at the end of this decade: those that are fully utilizing AI, and those that are <span class="accent">out of business</span>.&rdquo;<cite>Peter H. Diamandis<span>New York Times bestselling author</span></cite></blockquote>
+        <h1 class="hero-h1">Be the first kind. In five days, build your first AI agent, then a fleet to help run your gymnastics&nbsp;program.</h1>
+        <p class="hero-sub">For collegiate gymnastics head coaches, their staffs, directors of operations, and sport administrators who are being asked to do more than ever. You build on your own real work, and you leave knowing how to put it to work across your whole&nbsp;staff.</p>
+        <p class="hero-lede">The AI Agent Building Sprint is the on-ramp for coaches who know AI matters but want the exact way to use it. You build your first agent, then learn to make it better, stand up a fleet, and run them as one operating system, so you leave able to put AI to work across recruiting, fundraising, operations, outreach, and athlete development, and to bring your whole staff along with&nbsp;you.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#register">Pre-register for the Sprint</a>
+        </div>
+        <p class="cta-reassure">Pre-register now. We email your invoice, and your seat is locked the moment it is&nbsp;paid.</p>
+        <div class="chips">
+          <span class="chip"><b>October 19 to 23</b>, 2026</span>
+          <span class="chip"><b>10:00 AM</b> Central</span>
+          <span class="chip">Live on Zoom</span>
+          <span class="chip">1 hour a day, plus homework</span>
+          <span class="chip">Investment <b>$1,000</b> per program</span>
+        </div>
+        <div class="hero-offer">
+          <p class="hero-offer-k">Made possible through the Growth and Enhancement Committee of the Women's Collegiate Gymnastics Association</p>
+          <p class="hero-offer-h">Bring your <span class="warm">whole staff</span> for the price of&nbsp;one.</p>
+          <p class="hero-offer-sub">A $5,000 value per person, and we normally charge $1,000 for every seat. Use code <b>WCGA</b> and one flat $1,000 brings up to five people, or six with your sport&nbsp;administrator.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THE PROMISE ============ -->
+    <section class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">What you will learn</p>
+          <h2 class="section-title">Stop being the person every task runs&nbsp;through.</h2>
+          <p class="section-sub">The Sprint opens with a clear primer: why AI matters now, how to think about it, and exactly where to point it in your program. Then you climb the curve, from work trapped in your head to agents that deliver it for you and automate the work to increase your productivity&nbsp;exponentially.</p>
+        </div>
+        <div class="grid g5">
+          <div class="card"><span class="idx">Stage 1</span><h3>No SOP</h3><p>It is all in your head. The work depends on you being in the room.</p></div>
+          <div class="card"><span class="idx">Stage 2</span><h3>Written SOP</h3><p>The work is documented, so anyone can run it and get the same result.</p></div>
+          <div class="card"><span class="idx">Stage 3</span><h3>AI workflow</h3><p>AI runs each step on command. One person does the work of ten.</p></div>
+          <div class="card"><span class="idx">Stage 4</span><h3>AI agent</h3><p>The agent reads the standard, makes the call, and delivers finished work.</p></div>
+          <div class="card"><span class="idx">Stage 5</span><h3>Agent swarm</h3><p>Many agents run together and automate a whole function.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THE WEEK ============ -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">The week</p>
+          <h2 class="section-title">Five days, one working&nbsp;system.</h2>
+          <p class="section-sub"><strong>One hour of live training a day, Monday to Friday, at <span class="warm">10:00 AM Central</span></strong>, built on your own work, plus one to two hours of application work each day. This October cohort brings gymnastics programs into the room with business leaders from other industries, and that mix sharpens everyone: you will see how other leaders hand work to AI and carry the best ideas back to your&nbsp;program.</p>
+        </div>
+        <div class="grid g5">
+          <div class="card"><span class="idx">Day 1</span><h3>Build your first agent</h3><p>Set up Operate and Cowork, then build a working agent on a task you run every week.</p></div>
+          <div class="card"><span class="idx">Day 2</span><h3>Map your role</h3><p>Break your week into the work worth handing off, and pick the highest-leverage agent to build next.</p></div>
+          <div class="card"><span class="idx">Day 3</span><h3>Run, improve, wrap up</h3><p>Put your agent to work, raise its quality, and learn the wrap-up that keeps it sharp.</p></div>
+          <div class="card"><span class="idx">Day 4</span><h3>Speedrun your fleet</h3><p>Use the Agent Builder Speedrun to stand up several agents at once instead of one at a time.</p></div>
+          <div class="card"><span class="idx">Day 5</span><h3>Build your operating system</h3><p>Stand up the folder spine and Chief of Staff file that turn your agents into one operating system.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTENSIVE SPRINT ============ -->
+    <section class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Come ready to work</p>
+          <h2 class="section-title">This is an intensive Sprint. Come locked&nbsp;in.</h2>
+          <p class="section-sub">This Sprint asks a lot of you, on purpose. We pack a lot of value into one week, roughly two weeks of learning crammed into one, with real application on your own work as we go. Some days carry more than others, but plan on at least <span class="warm">one to two hours of application work every day</span> on top of the live hour, taking what we teach and putting it to work so you are ready the next morning. Every day builds on the one before, so everyone needs to be completely locked in to get the full value of this&nbsp;offer.</p>
+        </div>
+        <div class="orange-note">
+          <p><strong>My recommendation:</strong> block a half day for your training and application work, even though you will not need all of it every day. And bring your whole staff through it together. That shared experience is an enormous bonus you will feel long after the week&nbsp;ends.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ USE CASES ============ -->
+    <section class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Point it at the pain</p>
+          <h2 class="section-title">Build agents for the work that eats your&nbsp;week.</h2>
+          <p class="section-sub">On Day 2 you map your role and name your real pain points. Then you build AI to solve them, in the part of your program where it pays off&nbsp;fastest.</p>
+        </div>
+        <div class="grid g3">
+          <div class="card"><span class="idx">Recruiting</span><h3>Fill your board</h3><p>Screen prospects, personalize outreach, keep your board current, and never let a recruit go cold.</p></div>
+          <div class="card"><span class="idx">Fundraising</span><h3>Raise more</h3><p>Turn one ask into tailored donor letters, sponsor decks, and the follow-ups that actually go out.</p></div>
+          <div class="card"><span class="idx">Operations</span><h3>Run the week</h3><p>Practice plans, travel, facility time, and meet logistics, handled without the late nights.</p></div>
+          <div class="card"><span class="idx">Outreach</span><h3>Stay in front</h3><p>Newsletters, social, and parent and alumni updates, on message and on time.</p></div>
+          <div class="card"><span class="idx">Staff development</span><h3>Coach your coaches</h3><p>Build agents that help you plan, give feedback, and grow the people on your staff.</p></div>
+          <div class="card"><span class="idx">Athletes and analysis</span><h3>Sharpen every athlete</h3><p>Turn film, scores, and training data into clear next steps for each athlete.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERT VOICES ============ -->
+    <section class="quotes">
+      <div class="wrap">
+        <div class="section-head" style="text-align:center;">
+          <p class="eyebrow">Why now</p>
+          <h2 class="section-title">The people who study this&nbsp;agree.</h2>
+        </div>
+        <div class="quotes2">
+          <div class="qcard">
+            <blockquote>&ldquo;AI is more profound than <span class="accent">fire or electricity</span> or anything that we&rsquo;ve done in the past.&rdquo;</blockquote>
+            <cite>Sundar Pichai<span>CEO, Alphabet and Google</span></cite>
+          </div>
+          <div class="qcard">
+            <blockquote>&ldquo;AI won&rsquo;t replace humans, but <span class="accent">those who use AI will replace those who don&rsquo;t</span>.&rdquo;</blockquote>
+            <cite>Karim Lakhani<span>Professor, Harvard Business School</span></cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VALUE STACK ============ -->
+    <section id="value" class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">What you get</p>
+          <h2 class="section-title">$5,000 of value per person. Your whole program for $1,000&nbsp;total.</h2>
+          <p class="section-sub">This training is a $5,000 value per person, and we normally charge $1,000 for every seat. Through the Growth and Enhancement Committee of the Women's Collegiate Gymnastics Association, I am covering the rest: with code <strong>WCGA</strong>, one flat $1,000 brings your whole coaching staff, up to five people, or six with your sport administrator, into the&nbsp;room.</p>
+        </div>
+        <div class="value-wrap">
+          <div class="value-list">
+            <div class="value-row"><span class="vi">Five days of live cohort instruction with Brian, one hour each, Monday to Friday</span><span class="vv">$2,500</span></div>
+            <div class="value-row"><span class="vi">A working, named AI agent built live with you, in your own Operate folder</span><span class="vv">$100</span></div>
+            <div class="value-row"><span class="vi">The Agent Builder and Agent Builder Speedrun, the meta-agents that build agents, yours to keep</span><span class="vv">$750</span></div>
+            <div class="value-row"><span class="vi">Starter Packs of ready-to-run agents, including the 3-3-3 Method and Project Wrap-Up</span><span class="vv">$500</span></div>
+            <div class="value-row"><span class="vi">The prompts and framework to build unlimited agents on your own</span><span class="vv">$300</span></div>
+            <div class="value-row"><span class="vi">Your Operate operating-system scaffolding, built live on Day 5</span><span class="vv">$750</span></div>
+            <div class="value-row"><span class="vi">Cohort access plus every session recording and transcript</span><span class="vv">$100</span></div>
+            <div class="value-row total"><span class="vi">Total value, per person</span><span class="vv">$5,000</span></div>
+          </div>
+          <aside class="offer-card">
+            <div class="label">Code WCGA &middot; Your whole program</div>
+            <div class="strike">Normally $1,000 per person</div>
+            <div class="price">$1,000</div>
+            <p class="price-note">With code <strong>WCGA</strong>, one flat fee for your whole staff, up to five people, or six with your sport administrator. Not per&nbsp;person.</p>
+            <p class="price-note"><strong>The math:</strong> a $5,000 value per person. Bring six, your coaches, operations, and your sport administrator, and that is $30,000 of value for $1,000. I cover the&nbsp;rest.</p>
+            <p class="price-note">Led live by Brian Audia, founder of QAIZR.</p>
+            <a class="btn btn-primary" href="#register">Pre-register for the Sprint</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW PRE-REGISTRATION WORKS ============ -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">How pre-registration works</p>
+          <h2 class="section-title">Three steps to your&nbsp;seat.</h2>
+        </div>
+        <div class="grid g3">
+          <div class="card step"><span class="idx">01</span><h3>Pre-register</h3><p>Add your details in the form below. It takes about a minute, and it holds your place in line.</p></div>
+          <div class="card step"><span class="idx">02</span><h3>Receive your invoice</h3><p>QAIZR emails you one invoice for your program, for the week of October&nbsp;19.</p></div>
+          <div class="card step"><span class="idx">03</span><h3>Pay and you are in</h3><p>Payment confirms your program. You and your staff receive your Basecamp invitations and setup instructions right away.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REGISTER FORM ============ -->
+    <section id="register" class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Pre-register</p>
+          <h2 class="section-title">Save your program's spot for the week of October&nbsp;19.</h2>
+        </div>
+        <div class="form-wrap">
+          <div class="form-side">
+            <div class="prose">
+              <p>Spots are limited and the cohort stays small on purpose, so every program gets real attention during the live builds.</p>
+              <p><strong>Registration closes Wednesday, October 14</strong>, so your invoice, Basecamp invitations, and prework all land before Day&nbsp;1.</p>
+              <p>We use your details only to send your invoice and your Basecamp invitations. No spam, and your information is never sold.</p>
+            </div>
+            <div class="check">
+              <span class="dot"></span><p>Pre-register here, and QAIZR emails your invoice.</p>
+              <span class="dot"></span><p>Your program's spot is confirmed the moment the invoice is paid.</p>
+              <span class="dot"></span><p>You and your staff then receive your Basecamp invitations and setup instructions.</p>
+              <span class="dot"></span><p>Miss a session? Every session is recorded and yours to keep.</p>
+            </div>
+          </div>
+
+          <form class="form-card" id="prereg" novalidate>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="email">Work email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@school.edu">
+            </div>
+            <div class="field">
+              <label for="mobile">Mobile number</label>
+              <input type="tel" id="mobile" name="mobile" autocomplete="tel" required placeholder="(555) 123-4567">
+            </div>
+            <div class="field">
+              <label for="job_title">Role</label>
+              <input type="text" id="job_title" name="job_title" autocomplete="organization-title" required placeholder="Head Coach">
+            </div>
+            <div class="field">
+              <label for="school">School or institution</label>
+              <input type="text" id="school" name="school" autocomplete="organization" required placeholder="University name">
+            </div>
+            <div class="field">
+              <label for="staff_attending">Your staff attending <span class="opt">(optional)</span></label>
+              <textarea id="staff_attending" name="staff_attending" rows="4" placeholder="Jane Smith, jsmith@school.edu&#10;Chris Lee, clee@school.edu"></textarea>
+              <p class="session-hint">If you already know who is coming, list each person's name and email so we can send their Basecamp invitations. No problem if not, we will collect your full roster from you&nbsp;later.</p>
+            </div>
+            <div class="field">
+              <label for="billing_email">Billing contact email <span class="opt">(if different from above)</span></label>
+              <input type="email" id="billing_email" name="billing_email" autocomplete="email" placeholder="ap@school.edu">
+            </div>
+            <div class="field">
+              <label for="invoicing">Invoicing details <span class="opt">(optional)</span></label>
+              <input type="text" id="invoicing" name="invoicing" placeholder="PO number, billing address, or anything AP needs">
+            </div>
+            <div class="field">
+              <label for="code">Access code</label>
+              <input type="text" id="code" name="code" value="WCGA" placeholder="WCGA">
+            </div>
+            <input type="text" class="hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="_subject" value="New gymnastics Sprint pre-registration: October 19 to 23 cohort">
+            <button class="btn btn-primary" type="submit">Pre-register for the Sprint</button>
+            <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+            <p class="form-note">No payment now. You pre-register, QAIZR emails one invoice for your program, and your spot is only confirmed once you choose to pay. Questions? Email baudia@qzr.ai.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOTCAMP TEASE ============ -->
+    <section>
+      <div class="wrap">
+        <div class="tease">
+          <p class="eyebrow">What comes next</p>
+          <h2>The Sprint is Week&nbsp;1.</h2>
+          <p>The AI Agent Building Sprint stands on its own, and most coaches start and finish right here. When you are ready to go further, the Executive AI Operating System Bootcamp picks up where the Sprint ends, taking you from a single agent to an orchestrated system that runs the work. Pre-register for the Sprint first. The next step will be there when you want&nbsp;it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Good questions</p>
+          <h2 class="section-title">Answers before you&nbsp;register.</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq"><summary>Do I need to be tech-savvy to do this?</summary><p>No. If you can use email and a web browser, you can do this. We build live with you, one step at a time, and every session is recorded so you can go back over anything. Plenty of coaches will come in unsure about the tech and leave running their own agents.</p></details>
+          <details class="faq"><summary>What will I need to participate?</summary><p>A Windows or Mac laptop or desktop you can install software on, with at a minimum 16 GB of RAM and 500 GB of storage. We recommend 24 GB of RAM and 1 TB. This runs real work on your own machine, so a phone, tablet, or Chromebook will not do it, and it is not a place to skimp. You will also need a reliable internet connection, and each person needs at least a Claude Pro subscription, about $20 a month, to build, run, and manage agents. There are real reasons we teach this work in Claude, and there is more on that below. We will tell you exactly what to set up before Day 1.</p></details>
+          <details class="faq"><summary>Are there any additional costs?</summary><p>The one flat $1,000, with code WCGA, covers the full training for your whole staff, up to five people, or six with your sport administrator. The only other cost is a Claude Pro subscription, about $20 a month per person. That is it, no hidden fees.</p></details>
+          <details class="faq"><summary>Is there anything I need to do before Day 1?</summary><p>Yes. There is a short round of prework to get you registered and fully set up, your computer ready, Cowork by Claude installed, and your Claude Pro subscription active. Once we begin there is no time to stop and fix tech issues, so our team makes sure every person is prepped and ready before Day 1. Did we mention this is an intensive?!</p></details>
+          <details class="faq"><summary>Are the sessions online or in person?</summary><p>Everything is virtual. All sessions are live on Zoom, and your Zoom links are posted in Basecamp.</p></details>
+          <details class="faq"><summary>What if I have to miss a day?</summary><p>You will be fine. Every session is recorded, and the recording and transcript are posted in Basecamp for you to keep. All of your prompts, homework, and assignments live in your Basecamp folders too, so if you miss a session you can watch the recording, grab everything you need, and be caught up for the next day.</p></details>
+          <details class="faq"><summary>Will there be time for questions?</summary><p>Yes. Each day I teach for an hour and then dismiss the group, but I stick around for a few minutes afterward for a quick Q&amp;A. If something was not clear, stay on and ask.</p></details>
+          <details class="faq"><summary>How is the Sprint run day to day?</summary><p>We run the whole project through Basecamp. Your prompts, homework, session recordings, and where you submit your work all live there. You and your staff receive your Basecamp invitations once you register and pay.</p></details>
+          <details class="faq"><summary>Can my spouse or a family member join for their own business?</summary><p>Great idea, and yes. This October cohort is a great fit for it, because you will be in the room with business leaders from other industries anyway, and every tool, agent, method, and prompt we hand you applies to any business leader in any situation. The benefit of the two of you going through it together is real. One thing to be clear on: the WCGA gymnastics offer covers your program's staff, so a spouse or family member joining for a separate, non-gymnastics organization pays the normal rate of $1,000 per person. They cannot come through on the gymnastics deal. If you would like them to join you, have them register and add a note, and I will reach out to them personally to make sure they are fully supported.</p></details>
+          <details class="faq"><summary>Can I share the agents, prompts, tools, and training videos you give me with other people or programs at my school?</summary><p>Please do not. These systems and tools are our intellectual property, and we have spent hundreds of thousands of dollars building them for you. On top of that, I am discounting this program enormously as an investment in you, your program, and women's gymnastics nationally. If you know someone else who would benefit, I would be grateful if you pointed them to us so they can get the program for themselves. You are on the honor system here, and I trust you. I am proving it by handing you everything.</p></details>
+          <details class="faq"><summary>What if my school will not let me use Claude?</summary><p>That is a technical question specific to your situation, so let's have a quick side conversation to find the best solution. I am also glad to speak with your administrator or tech team about why these particular tools are needed. Think of it like construction: you need different tools for different reasons. We use saws, hammers, shovels, and chisels because different jobs call for different tools, and it would be extremely challenging to build an entire building with just a shovel. AI tools are much the same, and we will teach you to reach for the right one for each job. For building agents and running them together as a coordinated system, Cowork by Claude is, in our experience, the strongest tool for this work today, and it is what this entire Sprint is built around.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="finalcta">
+      <div class="wrap">
+        <p class="eyebrow" style="text-align:center;">Week of October 19</p>
+        <h2>Build your program's agents this&nbsp;week.</h2>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#register">Pre-register for the Sprint</a>
+        </div>
+        <p class="cta-reassure">$5,000 of value for $1,000, and your whole staff comes with you. No payment now: pre-register, we email your invoice, and your spot is locked when you choose to pay. Spots fill from pre-registration&nbsp;first.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#top" aria-label="QAIZR home">
+        <svg class="logo-svg" viewBox="17 64 1361 376" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><radialGradient id="fcore" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 252) rotate(90) scale(112)"><stop offset="0" stop-color="#F4FBFF" stop-opacity="0.9"/><stop offset="0.56" stop-color="#45D6FF" stop-opacity="0.2"/><stop offset="1" stop-color="#45D6FF" stop-opacity="0"/></radialGradient><linearGradient id="fq" x1="120" y1="140" x2="790" y2="320" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F1F6FC"/><stop offset="1" stop-color="#DDE9F7"/></linearGradient><linearGradient id="fai" x1="1120" y1="158" x2="1420" y2="336" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#70E8FF"/><stop offset="1" stop-color="#1F90FF"/></linearGradient></defs><text x="812" y="325" text-anchor="end" fill="url(#fq)" font-size="214" font-family="Space Grotesk, Arial, sans-serif" font-weight="600" letter-spacing="6">QAIZR</text><circle cx="960" cy="252" r="66" fill="none" stroke="#2DBCE8" stroke-width="6" stroke-linecap="round" stroke-dasharray="392 23" stroke-dashoffset="-52" opacity="0.86"/><circle cx="960" cy="252" r="104" fill="url(#fcore)"/><path d="M955.8 84 C956.2 162 957.2 212 958.8 252 C957.2 292 956.2 342 955.8 420 L964.2 420 C963.8 342 962.8 292 961.2 252 C962.8 212 963.8 162 964.2 84 Z" fill="#2DBCE8" opacity="0.95"/><circle cx="960" cy="252" r="14" fill="#F4FBFF"/><text x="1108" y="325" text-anchor="start" fill="url(#fai)" font-size="214" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" letter-spacing="6">AI</text></svg>
+      </a>
+      <p class="footer-meta">QAIZR &middot; <a href="https://qzr.ai">qzr.ai</a> &middot; <a href="mailto:baudia@qzr.ai">baudia@qzr.ai</a></p>
+    </div>
+  </footer>
+
+  <script>
+    /* ============================================================
+       FORMSPREE ENDPOINT - LIVE (wired 2026-07-04)
+       Gymnastics form, separate from the general flyer's form. Endpoint
+       below is "Gymnastics Sprint Pre-Registration October 2026" in the
+       QAIZR AI workspace. Notifications: baudia@qzr.ai + maudia@qzr.ai.
+       ============================================================ */
+    var FORM_ENDPOINT = "https://formspree.io/f/xojoyzoa";
+
+    /* sticky nav */
+    var nav = document.getElementById('nav');
+    function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 24); }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive:true });
+
+    /* form handler */
+    var form = document.getElementById('prereg');
+    var msg = document.getElementById('formMsg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (form._gotcha && form._gotcha.value) { return; }
+      if (!form.checkValidity()) {
+        msg.style.color = '#FF9A2F';
+        msg.textContent = 'Please complete the required fields above.';
+        form.reportValidity();
+        return;
+      }
+      var codeInput = form.querySelector('#code');
+      if (codeInput) { codeInput.value = codeInput.value.replace(/[^a-z0-9]/gi, '').toUpperCase(); }
+      var liveMode = FORM_ENDPOINT.indexOf('formspree.io') !== -1;
+      if (!liveMode) {
+        msg.style.color = '#45D6FF';
+        msg.textContent = 'Thank you. You are pre-registered. Watch your email for your invoice and a note about adding your staff. (Preview mode: no data was sent.)';
+        form.reset();
+        return;
+      }
+      var data = new FormData(form);
+      msg.style.color = '#C2D4E8';
+      msg.textContent = 'Sending...';
+      fetch(FORM_ENDPOINT, { method:'POST', body:data, headers:{ 'Accept':'application/json' } })
+        .then(function (r) {
+          if (r.ok) {
+            msg.style.color = '#45D6FF';
+            msg.textContent = 'Thank you. You are pre-registered. Watch your email for your invoice and a note about adding your staff.';
+            form.reset();
+          } else {
+            msg.style.color = '#FF9A2F';
+            msg.textContent = 'Something went wrong. Please email baudia@qzr.ai and we will register you directly.';
+          }
+        })
+        .catch(function () {
+          msg.style.color = '#FF9A2F';
+          msg.textContent = 'Something went wrong. Please email baudia@qzr.ai and we will register you directly.';
+        });
+    });
+  </script>
+</body>
+</html>
